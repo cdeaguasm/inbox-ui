@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Inbox.Views.InboxPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label
+            FontSize="Large"
+            HorizontalOptions="Center"
+            Text="Inbox" />
+
+        <Frame
+            Grid.Row="1"
+            Padding="0,0,0,-1"
+            BackgroundColor="#F1F1F1"
+            CornerRadius="20"
+            HasShadow="False"
+            HorizontalOptions="FillAndExpand"
+            IsClippedToBounds="True">
+
+            <SearchBar HorizontalOptions="FillAndExpand" Placeholder="Search conversation" />
+
+        </Frame>
+
+        <BoxView
+            Grid.Row="2"
+            BackgroundColor="#DDD"
+            HeightRequest="1" />
+
+        <CollectionView Grid.Row="3" ItemsSource="{Binding Messages}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="15,10,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Frame
+                            Grid.RowSpan="3"
+                            Margin="20"
+                            Padding="0"
+                            CornerRadius="20"
+                            HasShadow="False"
+                            IsClippedToBounds="True">
+                            <Image
+                                Grid.RowSpan="3"
+                                HeightRequest="40"
+                                Source="{Binding UserProfilePicture}"
+                                WidthRequest="40" />
+                        </Frame>
+
+                        <StackLayout
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+                            <Label
+                                FontSize="Medium"
+                                HorizontalOptions="StartAndExpand"
+                                Text="{Binding Subject}" />
+
+                            <Label
+                                FontSize="Small"
+                                HorizontalOptions="End"
+                                HorizontalTextAlignment="End"
+                                Text="{Binding Date, StringFormat='{0:hh:mm tt}'}"
+                                TextColor="#AAA" />
+                        </StackLayout>
+
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            FontSize="Small"
+                            LineBreakMode="TailTruncation"
+                            Text="{Binding Body}" />
+
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            FontSize="12"
+                            Text="{Binding Category}"
+                            TextColor="#888888" />
+
+
+                        <BoxView
+                            Grid.Row="3"
+                            Grid.ColumnSpan="2"
+                            Margin="-10,10,-10,0"
+                            BackgroundColor="#DDD"
+                            HeightRequest="1" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>
