@@ -16,7 +16,8 @@
         <Label
             FontSize="Large"
             HorizontalOptions="Center"
-            Text="Inbox" />
+            Text="Inbox"
+            Margin="15"/>
 
         <Frame
             Grid.Row="1"
@@ -25,7 +26,8 @@
             CornerRadius="20"
             HasShadow="False"
             HorizontalOptions="FillAndExpand"
-            IsClippedToBounds="True">
+            IsClippedToBounds="True"
+            Margin="30, 10">
 
             <SearchBar HorizontalOptions="FillAndExpand" Placeholder="Search conversation" />
 

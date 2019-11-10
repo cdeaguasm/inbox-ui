@@ -9,7 +9,6 @@ namespace Inbox
         public App()
         {
             InitializeComponent();
-
             MainPage = new MainPage();
         }
 
